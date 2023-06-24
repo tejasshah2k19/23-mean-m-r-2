@@ -23,5 +23,7 @@ function getAllUsers(req,res){
     res.json({msg:"AllUserRET",rcode:200,data:users})
 }
 
+ 
+
 module.exports.signup = signup
 module.exports.getAllUsers = getAllUsers

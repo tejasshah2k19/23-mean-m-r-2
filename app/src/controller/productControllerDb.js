@@ -36,12 +36,16 @@ module.exports.addProduct = function (req, res) {
 
 //nodeJs -> singlethread -> async 
 module.exports.getAllProducts = function (req, res) {
-    ProductModel.find().populate("categoryId").exec().then((data) => {
-        res.json({ "msg": "Product list", "data": data, "rcode": 200 })
-    }).catch((err) => {
-        console.log(err);
-        res.json({ "msg": "SMW", "rcode": -9, "data": err })
-    })
+
+   // console.log(req.headers.token);
+
+         ProductModel.find().populate("categoryId").exec().then((data) => {
+            res.json({ "msg": "Product list", "data": data, "rcode": 200 })
+        }).catch((err) => {
+            console.log(err);
+            res.json({ "msg": "SMW", "rcode": -9, "data": err })
+        })
+     
 }
 
 //getprodcut/1 
