@@ -30,7 +30,7 @@ module.exports.login = async function(req,res){
     let user = await UserModel.findOne({email:email})
     
     if(user && user.password == password){
-             token = jwt.sign({"email":user.email,"userId":user._id,"role":"user"},SEC_KEY)
+             token = jwt.sign({ "authId":user._id,"authority":"user"},SEC_KEY,{expiresIn:"7d"})
              console.log("token "+token);
          
              //update
